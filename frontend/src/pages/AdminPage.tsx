@@ -231,7 +231,6 @@ const AdminPage: React.FC = () => {
   const totalItems = filteredMovies.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-
   const goToPage = (pageNum: number) => {
     if (pageNum >= 1 && pageNum <= totalPages) {
       setCurrentPage(pageNum);
@@ -305,19 +304,19 @@ const AdminPage: React.FC = () => {
       alert("You do not have permission to delete movies.");
       return;
     }
-  
+
     if (!window.confirm("Are you sure you want to delete this movie?")) return;
-  
+
     try {
       const response = await fetch(
-        `https://localhost:5000/api/Admin/Movies/${showId}`,
+        `https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/api/Admin/Movies/${showId}`,
         {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
           credentials: "include",
         }
       );
-  
+
       if (response.ok) {
         setMovies((prev) => prev.filter((m) => m.showId !== showId));
       } else {
@@ -328,7 +327,7 @@ const AdminPage: React.FC = () => {
       console.error("Error deleting movie:", error);
       alert("An error occurred while trying to delete the movie.");
     }
-  };  
+  };
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -351,7 +350,7 @@ const AdminPage: React.FC = () => {
         delete payload.showId; // Remove showId when adding new movie
         console.log(JSON.stringify(payload, null, 2));
         const response = await fetch(
-          "https://localhost:5000/api/Admin/Movies",
+          "https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/api/Admin/Movies",
           {
             method: "POST",
             headers: {
@@ -378,7 +377,7 @@ const AdminPage: React.FC = () => {
       console.log("Updating movie with id:", currentMovie.showId);
       try {
         const response = await fetch(
-          `https://localhost:5000/api/Admin/Movies/${currentMovie.showId}`,
+          `https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/api/Admin/Movies/${currentMovie.showId}`,
           {
             method: "PUT",
             headers: {
