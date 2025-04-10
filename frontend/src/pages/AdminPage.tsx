@@ -1,3 +1,5 @@
+// "https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/api/Admin/Movies",
+
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -166,35 +168,6 @@ const AdminPage: React.FC = () => {
   // New state for a single selected genre
   const [selectedGenre, setSelectedGenre] = useState<string>("");
 
-  // For pagination
-  const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    Promise.all([fetchAllMovies()])
-      .then(([all]) => {
-        setMovies(all);
-      })
-      .catch((err) => setError(err.message));
-  }, []);
-
-  // Show loading while checking role
-  if (isLoading) {
-    return (
-      <div className="bg-black text-white min-vh-100 d-flex justify-content-center align-items-center">
-        <h2>Loading...</h2>
-      </div>
-    );
-  }
-
-  // Block access if not Admin
-  if (role !== "Administrator") {
-    return (
-      <div className="bg-black text-white min-vh-100 d-flex justify-content-center align-items-center">
-        <h2>Access Denied: Admins Only</h2>
-      </div>
-    );
-  }
-
   // Filter movies
   const filteredMovies = movies
     .filter((m) => m.title.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -226,10 +199,39 @@ const AdminPage: React.FC = () => {
       }
     });
 
+  // For pagination
+  const [currentPage, setCurrentPage] = useState(1);
+
   // Pagination
-  const itemsPerPage = 10;
+  const [itemsPerPage, setItemsPerPage] = useState(10);
   const totalItems = filteredMovies.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  useEffect(() => {
+    Promise.all([fetchAllMovies()])
+      .then(([all]) => {
+        setMovies(all);
+      })
+      .catch((err) => setError(err.message));
+  }, []);
+
+  // Show loading while checking role
+  if (isLoading) {
+    return (
+      <div className="bg-black text-white min-vh-100 d-flex justify-content-center align-items-center">
+        <h2>Loading...</h2>
+      </div>
+    );
+  }
+
+  // Block access if not Admin
+  if (role !== "Administrator") {
+    return (
+      <div className="bg-black text-white min-vh-100 d-flex justify-content-center align-items-center">
+        <h2>Access Denied: Admins Only</h2>
+      </div>
+    );
+  }
 
   const goToPage = (pageNum: number) => {
     if (pageNum >= 1 && pageNum <= totalPages) {
@@ -458,6 +460,23 @@ const AdminPage: React.FC = () => {
           </div>
 
           <div className="filter-sort-menu">
+            <select
+              value={itemsPerPage}
+              onChange={(e) => {
+                const value = Number(e.target.value);
+                if (!isNaN(value)) {
+                  setItemsPerPage(value);
+                  setCurrentPage(1);
+                }
+              }}
+            >
+              <option value={10}>Items per page</option>
+              <option value={15}>15 items</option>
+              <option value={30}>30 items</option>
+              <option value={50}>50 items</option>
+              <option value={100}>100 items</option>
+            </select>
+
             <select
               value={sortBy}
               onChange={(e) => {
