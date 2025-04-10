@@ -96,9 +96,14 @@ builder.Services.AddCors(options =>
             .AllowCredentials();
     }));
 
-var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
+try {
+   var app = builder.Build(); 
+   
+   // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -142,4 +147,19 @@ app.MapGet("/pingauth", (ClaimsPrincipal user) =>
     return Results.Json(new { email = email }); // Return as JSON
 }).RequireAuthorization();
 
-app.Run();
+    app.Run();
+
+}
+
+catch (Exception ex)
+{
+    Console.Error.WriteLine("Unhandled startup exception:");
+    Console.Error.WriteLine(ex);
+
+    var logger = LoggerFactory.Create(logging => logging.AddConsole()).CreateLogger("Startup");
+    logger.LogCritical(ex, "Unhandled exception during startup");
+
+    throw;
+}
+
+
