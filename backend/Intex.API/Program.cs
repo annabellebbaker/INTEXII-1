@@ -16,9 +16,17 @@ builder.Services.AddSwaggerGen();
 
 // Configure DbContext files
 builder.Services.AddDbContext<MovieDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("MovieDb")));
+    options.UseNpgsql(Environment.GetEnvironmentVariable("MOVIEDB_CONNECTION_STRING")));
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("IdentityDb")));
+    options.UseNpgsql(Environment.GetEnvironmentVariable("IDENTITYDB_CONNECTION_STRING")));
+
+// third party authentication
+builder.Services.AddAuthentication()
+    .AddGoogle(options =>
+    {
+        options.ClientId = Environment.GetEnvironmentVariable("Authentication:Google:ClientId");
+        options.ClientSecret = Environment.GetEnvironmentVariable("Authentication:Google:ClientSecret");
+    });
 
 builder.Services.AddAuthorization();
 // Authorization Policy to require Administrator role
@@ -82,19 +90,11 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend",
     policy =>
     {
-        policy.WithOrigins("http://localhost:3000", "https://delightful-pebble-0c3ff2d1e.6.azurestaticapps.net/")
+        policy.WithOrigins("http://localhost:3000", "https://salmon-glacier-03e509d1e.6.azurestaticapps.net/")
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials();
     }));
-
-// Add third-party authentication
-builder.Services.AddAuthentication()
-    .AddGoogle(options =>
-    {
-        options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
-        options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
-    });
 
 var app = builder.Build();
 
