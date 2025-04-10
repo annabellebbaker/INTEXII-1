@@ -150,6 +150,7 @@ const AdminPage: React.FC = () => {
   const { role, isLoading } = useRole();
   const [movies, setMovies] = useState<Movie[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [, setError] = useState<string>("");
 
   // Filters
   const [mediaTypeFilter, setMediaTypeFilter] = useState<string>("all");
@@ -164,6 +165,9 @@ const AdminPage: React.FC = () => {
 
   // New state for a single selected genre
   const [selectedGenre, setSelectedGenre] = useState<string>("");
+
+  // For pagination
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     Promise.all([fetchAllMovies()])
@@ -223,7 +227,6 @@ const AdminPage: React.FC = () => {
     });
 
   // Pagination
-  const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
   const totalItems = filteredMovies.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -298,46 +301,34 @@ const AdminPage: React.FC = () => {
   };
 
   const handleDeleteMovie = async (showId: string) => {
-    if (isLoading) {
-      // Show a loading spinner or message until the role is loaded
-      return (
-        <div className="bg-black text-white min-vh-100 d-flex justify-content-center align-items-center">
-          Loading role...
-        </div>
-      );
-    }
-
     if (role !== "Administrator") {
       alert("You do not have permission to delete movies.");
       return;
     }
-
+  
     if (!window.confirm("Are you sure you want to delete this movie?")) return;
-
+  
     try {
       const response = await fetch(
         `https://localhost:5000/api/Admin/Movies/${showId}`,
         {
           method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include", // Ensures session cookie is included in the request
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
         }
       );
-
+  
       if (response.ok) {
         setMovies((prev) => prev.filter((m) => m.showId !== showId));
       } else {
         console.error("Failed to delete movie:", response.status);
-        // Optionally, show an alert if you want a user-friendly error
         alert("Failed to delete movie. Please try again.");
       }
     } catch (error) {
       console.error("Error deleting movie:", error);
       alert("An error occurred while trying to delete the movie.");
     }
-  };
+  };  
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -805,6 +796,3 @@ const AdminPage: React.FC = () => {
 };
 
 export default AdminPage;
-function setError(_message: any): any {
-  throw new Error("Function not implemented.");
-}
