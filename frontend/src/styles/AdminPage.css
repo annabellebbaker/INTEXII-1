@@ -114,13 +114,8 @@
   max-height: calc(80vh - 70px); /* leave space for buttons */
 }
 
-/* Hide modal body scrollbar if desired */
-.modal-body::-webkit-scrollbar {
-  display: none;
-}
 .modal-body {
   -ms-overflow-style: none; /* IE 10+ */
-  scrollbar-width: none; /* Firefox */
 }
 
 /* Ensure inputs and textareas span full width */

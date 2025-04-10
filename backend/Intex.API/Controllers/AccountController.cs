@@ -45,9 +45,9 @@ namespace Intex.API.Controllers
 
         // Login using Google
         [HttpGet("ExternalLogin")]
-        public IActionResult ExternalLogin(string provider, string returnUrl = "http://localhost:3000/browse")
+        public IActionResult ExternalLogin(string provider, string returnUrl = "https://salmon-glacier-03e509d1e.6.azurestaticapps.net/browse")
         {
-            var redirectUrl = $"https://localhost:5000/Account/ExternalLoginCallback?returnUrl={Uri.EscapeDataString(returnUrl)}";
+            var redirectUrl = $"{Request.Scheme}://{Request.Host}/Account/ExternalLoginCallback?returnUrl={Uri.EscapeDataString(returnUrl)}";
 
             var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, "/Account/ExternalLoginCallback");
             properties.Items["returnUrl"] = returnUrl;
@@ -56,7 +56,7 @@ namespace Intex.API.Controllers
 
         // Login with Google
         [HttpGet("ExternalLoginCallback")]
-        public async Task<IActionResult> ExternalLoginCallback(string returnUrl = "http://localhost:3000/browse")
+        public async Task<IActionResult> ExternalLoginCallback(string returnUrl = "https://salmon-glacier-03e509d1e.6.azurestaticapps.net/browse")
         {
             var info = await _signInManager.GetExternalLoginInfoAsync();
             if (info == null) return Redirect("/login"); // fallback
