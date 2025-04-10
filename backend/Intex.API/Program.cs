@@ -90,7 +90,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend",
     policy =>
     {
-        policy.WithOrigins("http://localhost:3000", "https://salmon-glacier-03e509d1e.6.azurestaticapps.net/")
+        policy.WithOrigins("http://localhost:3000", "https://salmon-glacier-03e509d1e.6.azurestaticapps.net")
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials();

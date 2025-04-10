@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("f2fc6d2c-87d1-4594-8661-58cf3bae6c53")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Intex.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ec29d7868eb4a8dc1bd4ec86cdc8403d2a2bbf9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+35a7e1052830f27c938c8c73d4cd03671894afc4")]
 [assembly: System.Reflection.AssemblyProductAttribute("Intex.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Intex.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

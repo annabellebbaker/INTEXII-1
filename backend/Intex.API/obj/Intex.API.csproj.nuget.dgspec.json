@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\maris\\OneDrive\\Desktop\\School\\Winter 2025\\INTEX\\INTEXII\\backend\\Intex.API\\Intex.API.csproj": {}
+    "C:\\INTEX pt 2\\INTEXII-1\\backend\\Intex.API\\Intex.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\maris\\OneDrive\\Desktop\\School\\Winter 2025\\INTEX\\INTEXII\\backend\\Intex.API\\Intex.API.csproj": {
+    "C:\\INTEX pt 2\\INTEXII-1\\backend\\Intex.API\\Intex.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maris\\OneDrive\\Desktop\\School\\Winter 2025\\INTEX\\INTEXII\\backend\\Intex.API\\Intex.API.csproj",
+        "projectUniqueName": "C:\\INTEX pt 2\\INTEXII-1\\backend\\Intex.API\\Intex.API.csproj",
         "projectName": "Intex.API",
-        "projectPath": "C:\\Users\\maris\\OneDrive\\Desktop\\School\\Winter 2025\\INTEX\\INTEXII\\backend\\Intex.API\\Intex.API.csproj",
-        "packagesPath": "C:\\Users\\maris\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maris\\OneDrive\\Desktop\\School\\Winter 2025\\INTEX\\INTEXII\\backend\\Intex.API\\obj\\",
+        "projectPath": "C:\\INTEX pt 2\\INTEXII-1\\backend\\Intex.API\\Intex.API.csproj",
+        "packagesPath": "C:\\Users\\abbak\\.nuget\\packages\\",
+        "outputPath": "C:\\INTEX pt 2\\INTEXII-1\\backend\\Intex.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\maris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\abbak\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -102,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.103/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
