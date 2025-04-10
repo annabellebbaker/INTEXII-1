@@ -1,16 +1,18 @@
 // Configure URL
 const API_URL =
-  "https://localhost:5000/api/Rating";
+  "https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/api/Rating";
 
 // Create a rating data type
 type UserRatingResponse = {
-    rating: number | null;
-    comment: string;
+  rating: number | null;
+  comment: string;
 };
 
 // Get the User Rating for an individual movie
 
-export async function getUserRating(showId: string): Promise<UserRatingResponse | null> {
+export async function getUserRating(
+  showId: string
+): Promise<UserRatingResponse | null> {
   try {
     const response = await fetch(`${API_URL}/user/${showId}`, {
       credentials: "include",
@@ -36,7 +38,11 @@ export async function getUserRating(showId: string): Promise<UserRatingResponse 
 }
 
 // Submit a new user rating for a movie
-export async function submitUserRating(showId: string, rating: number, comment: string | null) {
+export async function submitUserRating(
+  showId: string,
+  rating: number,
+  comment: string | null
+) {
   const payload: any = { rating };
   if (comment !== null) {
     payload.comment = comment;

@@ -14,13 +14,16 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   useEffect(() => {
     const fetchRole = async () => {
       try {
-        const response = await fetch("https://localhost:5000/api/User/role", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        });
+        const response = await fetch(
+          "https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/api/User/role",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+          }
+        );
 
         if (response.ok) {
           const data = await response.json();

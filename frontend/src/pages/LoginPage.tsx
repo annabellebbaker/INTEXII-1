@@ -14,7 +14,7 @@ function LoginPage() {
 
   // Third-party authentication with Google
   const handleGoogleLogin = () => {
-    window.location.href = "https://localhost:5000/Account/ExternalLogin?provider=Google&returnUrl=/browse";
+    window.location.href = "https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/Account/ExternalLogin?provider=Google&returnUrl=/browse";
   };
 
   // When the form is changed, update the submission

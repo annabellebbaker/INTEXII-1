@@ -6,10 +6,13 @@ export function useAuthStatus(): boolean | null {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
 
   useEffect(() => {
-    fetch("https://localhost:5000/pingauth", {
-      method: "GET",
-      credentials: "include", // Send cookies
-    })
+    fetch(
+      "https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/pingauth",
+      {
+        method: "GET",
+        credentials: "include", // Send cookies
+      }
+    )
       .then((res) => setIsLoggedIn(res.ok))
       .catch(() => setIsLoggedIn(false));
   }, []);

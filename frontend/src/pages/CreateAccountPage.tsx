@@ -12,10 +12,11 @@ function CreateAccountPage() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-    // Third-party authentication with Google
-    const handleGoogleLogin = () => {
-      window.location.href = "https://localhost:5000/Account/ExternalLogin?provider=Google&returnUrl=/browse";
-    };
+  // Third-party authentication with Google
+  const handleGoogleLogin = () => {
+    window.location.href =
+      "https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/Account/ExternalLogin?provider=Google&returnUrl=/browse";
+  };
 
   // When user clicks "Already have an account", navigate to the login page
   const handleLoginClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -48,17 +49,18 @@ function CreateAccountPage() {
       // Create an account for the user
       registerUser(email, password)
         .then((res) => {
-            if (res.ok) {
+          if (res.ok) {
             setError("Successful registration. Please log in.");
             setTimeout(() => navigate("/login"), 1500);
-            } else {
+          } else {
             setError(res.message || "Error registering.");
-            }
+          }
         })
         .catch(() => {
-            setError("Error registering.");
+          setError("Error registering.");
         });
-  }};
+    }
+  };
 
   return (
     <>
@@ -69,7 +71,9 @@ function CreateAccountPage() {
             <div className="row justify-content-center">
               <div className="col-md-8 col-lg-6">
                 <div className="login-card p-5 text-light rounded-4 shadow-lg">
-                  <h1 className="text-center fw-bold mb-4 display-5 text-light">Create Account</h1>
+                  <h1 className="text-center fw-bold mb-4 display-5 text-light">
+                    Create Account
+                  </h1>
                   <form onSubmit={handleSubmit}>
                     <div className="form-floating mb-3">
                       <input
@@ -80,7 +84,9 @@ function CreateAccountPage() {
                         value={email}
                         onChange={handleChange}
                       />
-                      <label htmlFor="email" className="text-secondary">Email address</label>
+                      <label htmlFor="email" className="text-secondary">
+                        Email address
+                      </label>
                     </div>
 
                     <div className="form-floating mb-3">
@@ -92,7 +98,9 @@ function CreateAccountPage() {
                         value={password}
                         onChange={handleChange}
                       />
-                      <label htmlFor="password" className="text-secondary">Password</label>
+                      <label htmlFor="password" className="text-secondary">
+                        Password
+                      </label>
                     </div>
 
                     <div className="form-floating mb-3">
@@ -104,24 +112,38 @@ function CreateAccountPage() {
                         value={confirmPassword}
                         onChange={handleChange}
                       />
-                      <label htmlFor="confirmPassword" className="text-secondary">Confirm Password</label>
+                      <label
+                        htmlFor="confirmPassword"
+                        className="text-secondary"
+                      >
+                        Confirm Password
+                      </label>
                     </div>
 
                     {error && (
-                      <p className={`text-center ${error === "Successful registration. Please log in." ? "text-success" : "text-danger"}`}>
+                      <p
+                        className={`text-center ${error === "Successful registration. Please log in." ? "text-success" : "text-danger"}`}
+                      >
                         {error}
                       </p>
                     )}
 
                     <div className="d-grid mb-3">
-                      <button type="submit" className="btn btn-secondary text-light w-100">
+                      <button
+                        type="submit"
+                        className="btn btn-secondary text-light w-100"
+                      >
                         Register
                       </button>
                     </div>
 
                     <div className="d-grid mb-3">
                       <p>OR</p>
-                      <button type="button" className="btn-google w-100" onClick={handleGoogleLogin}>
+                      <button
+                        type="button"
+                        className="btn-google w-100"
+                        onClick={handleGoogleLogin}
+                      >
                         <img
                           src="/googleIcon.png"
                           alt="Google Logo"
