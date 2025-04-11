@@ -7,7 +7,7 @@ export function useAuthStatus(): boolean | null {
 
   useEffect(() => {
     fetch(
-      "https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/pingauth",
+      "https://intexrahhh-backend-fzfrcxdnc2b5g9f7.eastus-01.azurewebsites.net/pingauth",
       {
         method: "GET",
         credentials: "include", // Send cookies

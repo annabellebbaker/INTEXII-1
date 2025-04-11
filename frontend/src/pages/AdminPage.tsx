@@ -1,4 +1,3 @@
-// "https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/api/Admin/Movies",
 
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";

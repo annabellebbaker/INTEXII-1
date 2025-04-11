@@ -15,7 +15,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
     const fetchRole = async () => {
       try {
         const response = await fetch(
-          "https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/api/User/role",
+          "https://intexrahhh-backend-fzfrcxdnc2b5g9f7.eastus-01.azurewebsites.net/api/User/role",
           {
             method: "GET",
             headers: {

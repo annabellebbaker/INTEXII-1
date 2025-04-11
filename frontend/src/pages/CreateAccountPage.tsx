@@ -15,7 +15,7 @@ function CreateAccountPage() {
   // Third-party authentication with Google
   const handleGoogleLogin = () => {
     window.location.href =
-      "https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/Account/ExternalLogin?provider=Google&returnUrl=/browse";
+      "https://intexrahhh-backend-fzfrcxdnc2b5g9f7.eastus-01.azurewebsites.net/Account/ExternalLogin?provider=Google&returnUrl=/browse";
   };
 
   // When user clicks "Already have an account", navigate to the login page

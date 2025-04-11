@@ -14,7 +14,8 @@ function LoginPage() {
 
   // Third-party authentication with Google
   const handleGoogleLogin = () => {
-    window.location.href = "https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/Account/ExternalLogin?provider=Google&returnUrl=/browse";
+    window.location.href =
+      "https://intexrahhh-backend-fzfrcxdnc2b5g9f7.eastus-01.azurewebsites.net/Account/ExternalLogin?provider=Google&returnUrl=/browse";
   };
 
   // When the form is changed, update the submission
@@ -52,7 +53,8 @@ function LoginPage() {
         data = await response.json();
       }
 
-      if (!response.ok) throw new Error(data?.message || "Invalid email or password.");
+      if (!response.ok)
+        throw new Error(data?.message || "Invalid email or password.");
       navigate("/browse");
     } catch (error: any) {
       setError(error.message || "Error logging in.");
@@ -68,7 +70,9 @@ function LoginPage() {
             <div className="row justify-content-center">
               <div className="col-md-8 col-lg-6">
                 <div className="login-card p-5 text-light rounded-4 shadow-lg">
-                  <h1 className="text-center fw-bold mb-4 display-5 text-light">Sign In</h1>
+                  <h1 className="text-center fw-bold mb-4 display-5 text-light">
+                    Sign In
+                  </h1>
                   <form onSubmit={handleSubmit}>
                     <div className="form-floating mb-3">
                       <input
@@ -79,7 +83,9 @@ function LoginPage() {
                         value={email}
                         onChange={handleChange}
                       />
-                      <label htmlFor="email" className="text-secondary">Email address</label>
+                      <label htmlFor="email" className="text-secondary">
+                        Email address
+                      </label>
                     </div>
 
                     <div className="form-floating mb-3">
@@ -91,7 +97,9 @@ function LoginPage() {
                         value={password}
                         onChange={handleChange}
                       />
-                      <label htmlFor="password" className="text-secondary">Password</label>
+                      <label htmlFor="password" className="text-secondary">
+                        Password
+                      </label>
                     </div>
 
                     <div className="form-check mb-3">
@@ -102,21 +110,33 @@ function LoginPage() {
                         checked={rememberme}
                         onChange={handleChange}
                       />
-                      <label className="form-check-label text-light" htmlFor="rememberme">
+                      <label
+                        className="form-check-label text-light"
+                        htmlFor="rememberme"
+                      >
                         Remember me
                       </label>
                     </div>
 
-                    {error && <p className="text-danger text-center">{error}</p>}
+                    {error && (
+                      <p className="text-danger text-center">{error}</p>
+                    )}
 
                     <div className="d-grid mb-3">
-                      <button type="submit" className="btn btn-secondary text-light w-100">
+                      <button
+                        type="submit"
+                        className="btn btn-secondary text-light w-100"
+                      >
                         Sign In
                       </button>
                     </div>
 
                     <div className="d-grid mb-3">
-                      <button type="button" className="btn-google w-100" onClick={handleGoogleLogin}>
+                      <button
+                        type="button"
+                        className="btn-google w-100"
+                        onClick={handleGoogleLogin}
+                      >
                         <img
                           src="/googleIcon.png"
                           alt="Google Logo"
