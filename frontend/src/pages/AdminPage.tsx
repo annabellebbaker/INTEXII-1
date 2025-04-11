@@ -311,7 +311,7 @@ const AdminPage: React.FC = () => {
 
     try {
       const response = await fetch(
-        `https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/api/Admin/Movies/${showId}`,
+        `https://intexrahhh-backend-fzfrcxdnc2b5g9f7.eastus-01.azurewebsites.net/api/Admin/Movies/${showId}`,
         {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
@@ -352,7 +352,7 @@ const AdminPage: React.FC = () => {
         delete payload.showId; // Remove showId when adding new movie
         console.log(JSON.stringify(payload, null, 2));
         const response = await fetch(
-          "https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/api/Admin/Movies",
+          "https://intexrahhh-backend-fzfrcxdnc2b5g9f7.eastus-01.azurewebsites.net/api/Admin/Movies",
           {
             method: "POST",
             headers: {
@@ -379,7 +379,7 @@ const AdminPage: React.FC = () => {
       console.log("Updating movie with id:", currentMovie.showId);
       try {
         const response = await fetch(
-          `https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/api/Admin/Movies/${currentMovie.showId}`,
+          `https://intexrahhh-backend-fzfrcxdnc2b5g9f7.eastus-01.azurewebsites.net/api/Admin/Movies/${currentMovie.showId}`,
           {
             method: "PUT",
             headers: {

@@ -1,6 +1,6 @@
 // Configure URL
 const API_URL =
-  "https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/api/Rating";
+  "https://intexrahhh-backend-fzfrcxdnc2b5g9f7.eastus-01.azurewebsites.net/api/Rating";
 
 // Create a rating data type
 type UserRatingResponse = {

@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     headers: {
       "Content-Security-Policy":
-        "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://movieposters.blob.core.windows.net; frame-ancestors 'none'; font-src 'self' data:; connect-src 'self' https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net; object-src 'none'; base-uri 'self'; form-action 'self';",
+        "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://movieposters.blob.core.windows.net; frame-ancestors 'none'; font-src 'self' data:; connect-src 'self' https://intexrahhh-backend-fzfrcxdnc2b5g9f7.eastus-01.azurewebsites.net; object-src 'none'; base-uri 'self'; form-action 'self';",
     },
   },
 });

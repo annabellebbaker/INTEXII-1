@@ -2,7 +2,7 @@ import { User } from "../types/User";
 
 // Configure URL
 const API_URL =
-  "https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net";
+  "https://intexrahhh-backend-fzfrcxdnc2b5g9f7.eastus-01.azurewebsites.net";
 
 // Register a user to the database (Create Account)
 export async function registerUser(

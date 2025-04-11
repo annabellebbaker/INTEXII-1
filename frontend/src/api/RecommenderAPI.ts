@@ -2,7 +2,7 @@ import { Movie } from "../types/Movies";
 
 // Configure URL
 const API_URL =
-  "https://intexii-backend-d2cjhzbzbxdybgdp.eastus-01.azurewebsites.net/api/Recommend";
+  "https://intexrahhh-backend-fzfrcxdnc2b5g9f7.eastus-01.azurewebsites.net/api/Recommend";
 
 // Get Recommendations based on the show ID using collaborative filtering
 export async function fetchCollaborativeRecommendations(showId: string) {
